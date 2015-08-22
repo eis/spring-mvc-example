@@ -12,6 +12,6 @@ notifications:
      - eis@iki.fi
     on_success: change
     on_failure: always
-    
+
 after_failure:
   - cat target/surefire-reports/*.txt
