@@ -1,0 +1,17 @@
+language: java
+sudo: false
+
+jdk:
+  - oraclejdk8
+
+install: mvn clean site -DbuildNumber=${TRAVIS_BUILD_NUMBER}
+
+notifications:
+  email:
+    recipients:
+     - eis@iki.fi
+    on_success: change
+    on_failure: always
+    
+after_failure:
+  - cat target/surefire-reports/*.txt
