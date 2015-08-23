@@ -1,0 +1,13 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+${BROWSER}        Firefox
+
+*** Test Cases ***
+Test spring-mvc-app
+  Open Browser  http://localhost:8080/spring-app
+  Page Should Contain  Hello world!
+  [Teardown]    Close Browser
+
+*** Keywords ***
