@@ -25,6 +25,7 @@
                     <groupId>commons-logging</groupId>
                     <artifactId>commons-logging</artifactId>
                 </exclusion>
+
             </exclusions>
         </dependency>
         <dependency>
@@ -106,8 +107,23 @@
             <artifactId>robotframework-selenium2library-java</artifactId>
             <version>1.4.0.7</version>
             <scope>test</scope>
+            <!-- http://stackoverflow.com/questions/8375423/missing-artifact-com-suntoolsjar -->
+            <exclusions>
+		        <exclusion>
+		            <artifactId>tools</artifactId>
+		            <groupId>com.sun</groupId>
+		        </exclusion>
+		    </exclusions>
         </dependency>
-
+        <!-- older guava, coming from robot, has a problem with CDI/EE7 - see
+        https://code.google.com/p/guava-libraries/issues/detail?id=1433
+         -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>17.0</version>
+			<scope>test</scope>
+		</dependency>
     </dependencies>
     <build>
         <plugins>
