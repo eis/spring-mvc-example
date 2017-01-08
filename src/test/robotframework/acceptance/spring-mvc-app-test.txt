@@ -6,7 +6,7 @@ ${BROWSER}        Firefox
 
 *** Test Cases ***
 Test spring-mvc-app
-  Open Browser  http://localhost:8080/spring-app
+  Open Browser  http://localhost:8888/spring-mvc-example
   Page Should Contain  Hello world!
   [Teardown]    Close Browser
 
