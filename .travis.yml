@@ -15,3 +15,6 @@ notifications:
 
 after_failure:
   - cat target/surefire-reports/*.txt
+
+after_success:
+  - travis_wait mvn cobertura:cobertura-integration-test coveralls:report --quiet --batch-mode
