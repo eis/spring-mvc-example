@@ -7,14 +7,16 @@
     <name>${project.artifactId}</name>
     <packaging>war</packaging>
     <version>1.0.0-BUILD-SNAPSHOT</version>
+
     <properties>
-        <java-version>1.7</java-version>
-        <org.springframework-version>4.2.0.RELEASE</org.springframework-version>
+        <java-version>1.8</java-version>
+        <org.springframework-version>4.3.2.RELEASE</org.springframework-version>
         <org.aspectj-version>1.6.10</org.aspectj-version>
         <org.slf4j-version>1.6.6</org.slf4j-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+
     <dependencies>
         <!-- Spring -->
         <dependency>
@@ -27,9 +29,9 @@
                     <groupId>commons-logging</groupId>
                     <artifactId>commons-logging</artifactId>
                 </exclusion>
-
             </exclusions>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -61,8 +63,33 @@
             <version>${org.slf4j-version}</version>
             <scope>runtime</scope>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.2.0.Final</version>
+        </dependency>
+        <!-- Swagger for api documentation -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <!-- json databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.8.5</version>
+        </dependency>
         <!-- @Inject -->
         <dependency>
             <groupId>javax.inject</groupId>
@@ -73,8 +100,8 @@
         <!-- Servlet -->
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>3.0-alpha-1</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -91,10 +118,10 @@
 
         <!-- below for robot framework -->
         <dependency>
-          <groupId>org.seleniumhq.selenium</groupId>
-          <artifactId>selenium-java</artifactId>
-          <version>2.45.0</version>
-          <scope>test</scope>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.45.0</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- Test -->
@@ -104,7 +131,26 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Spring-test uses jsonassert dependency for json() -->
+        <dependency>
+            <groupId>org.skyscreamer</groupId>
+            <artifactId>jsonassert</artifactId>
+            <version>1.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Spring-test uses jsonpath for jsonPath() -->
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>2.2.0</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>com.github.markusbernhardt</groupId>
             <artifactId>robotframework-selenium2library-java</artifactId>
@@ -118,9 +164,8 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- older guava, coming from robot, has a problem with CDI/EE7 - see
-        https://code.google.com/p/guava-libraries/issues/detail?id=1433
-         -->
+        <!-- older guava, coming from robot, has a problem with CDI/EE7 - 
+            see https://code.google.com/p/guava-libraries/issues/detail?id=1433 -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -129,6 +174,7 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>ROOT</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -166,8 +212,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <failOnMissingWebXml>true</failOnMissingWebXml>
-                    <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
             <plugin>
@@ -175,19 +220,13 @@
                 <groupId>org.robotframework</groupId>
                 <artifactId>robotframework-maven-plugin</artifactId>
                 <version>1.4.4</version>
-                <!-- execution below can be used, if tests are needed on mvn:integration-test-->
-                <!--
-                <executions>
-                  <execution>
-                    <goals>
-                      <goal>run</goal>
-                    </goals>
-                  </execution>
-                </executions>
-                -->
+                <!-- execution below can be used, if tests are needed on 
+                    mvn:integration-test -->
+                <!-- <executions> <execution> <goals> <goal>run</goal> </goals> 
+                    </execution> </executions> -->
             </plugin>
             <plugin>
-            	<!-- usage: mvn -s settings-vm.xml tomcat7:deploy -->
+                <!-- usage: mvn -s settings-vm.xml tomcat7:deploy -->
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
