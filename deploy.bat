@@ -1,0 +1,1 @@
+mvn -s settings-vm.xml tomcat7:deploy

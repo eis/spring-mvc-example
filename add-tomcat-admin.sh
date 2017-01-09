@@ -1,0 +1,1 @@
+sed '/^\s*<!--/!b;N;/<role/s/.*\n//;T;:a;n;/^\s*-->/!ba;d' /etc/tomcat8/tomcat-users.xml | sed 's/<role.*//g'| sed 's/.*role1.*//g' | sed 's/roles="tomcat"/roles="manager-gui,manager-script"/g' > /vagrant/tomcat-users.xml.tmp && mv /vagrant/tomcat-users.xml.tmp /etc/tomcat8/tomcat-users.xml
