@@ -241,17 +241,22 @@
                     </execution> </executions> -->
             </plugin>
             <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-failsafe-plugin</artifactId>
-              <version>2.19.1</version>
-              <executions>
-                <execution>
-                  <goals>
-                    <goal>integration-test</goal>
-                    <goal>verify</goal>
-                  </goals>
-                </execution>
-              </executions>
+                <!-- to run: mvn failsafe:integration-test -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.19.1</version>
+                <!-- execution below can be used, if tests are needed on 
+                    mvn:integration-test -->
+                <!-- 
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                 -->
             </plugin>
             <plugin>
                 <!-- usage: mvn -s settings-vm.xml tomcat7:deploy -->
