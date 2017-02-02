@@ -2,11 +2,12 @@
 Library           Selenium2Library
 
 *** Variables ***
-${BROWSER}        Firefox
+# Values: http://sqa.stackexchange.com/a/6211
+${BROWSER}        HTMLUnit
 
 *** Test Cases ***
 Test spring-mvc-app
-  Open Browser  http://localhost:8888/spring-mvc-example
+  Open Browser  http://localhost:8080/spring-mvc-example    ${BROWSER}
   Page Should Contain  Hello world!
   [Teardown]    Close Browser
 
