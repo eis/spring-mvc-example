@@ -172,6 +172,21 @@
             <version>17.0</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- below for rest-assured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>3.0.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>spring-mock-mvc</artifactId>
+            <version>3.0.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <finalName>ROOT</finalName>
@@ -224,6 +239,18 @@
                     mvn:integration-test -->
                 <!-- <executions> <execution> <goals> <goal>run</goal> </goals> 
                     </execution> </executions> -->
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-failsafe-plugin</artifactId>
+              <executions>
+                <execution>
+                  <goals>
+                    <goal>integration-test</goal>
+                    <goal>verify</goal>
+                  </goals>
+                </execution>
+              </executions>
             </plugin>
             <plugin>
                 <!-- usage: mvn -s settings-vm.xml tomcat7:deploy -->
