@@ -12,7 +12,9 @@ configuration and Maven POM ready to be deployed.
 Infra setup (VM)
 ----------------
 
-`vagrant up`
+```
+vagrant up
+```
 
 Infra setup (Ubuntu host)
 -------------------------
@@ -20,13 +22,15 @@ Infra setup (Ubuntu host)
 ```
 ./ubuntu-deps.sh
 ./add-tomcat-admin.sh
-systemctl restart tomcat8'
+systemctl restart tomcat8
 ```
 
 Build & run the app
 -------------------
 
-`mvn -s settings-vm.xml tomcat7:deploy`
+```
+mvn -s settings-vm.xml tomcat7:deploy
+```
 
 See the app yourself
 --------------------
