@@ -25,7 +25,7 @@ import fi.eis.applications.spring.mvc.example.WebConfig;
 @RunWith(SpringRunner.class)
 @WebAppConfiguration 
 @ContextConfiguration(classes = { WebConfig.class })
-public class CounterControllerSpringMockMVCTest {
+public class CounterControllerSpringMockMVCWebappTest {
 
     @Autowired
     private WebApplicationContext context;

@@ -20,7 +20,7 @@ import fi.eis.applications.spring.mvc.example.WebConfig;
 @RunWith(SpringRunner.class)
 @WebAppConfiguration 
 @ContextConfiguration(classes = { WebConfig.class })
-public class HelloSpringMockMVCTest {
+public class HelloSpringMockMVCWebappTest {
 
     @Autowired
     private WebApplicationContext context;
