@@ -9,7 +9,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @RunWith(SpringRunner.class)
 @WebAppConfiguration 
 @ContextConfiguration(classes = { WebConfig.class })
-public class ConfigTest {
+public class WebConfigTest {
 
     @Test
     public void whenSpringContextIsInstantiated_thenNoExceptions() {
