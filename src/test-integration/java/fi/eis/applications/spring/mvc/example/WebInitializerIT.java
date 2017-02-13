@@ -22,7 +22,7 @@ import static org.junit.Assert.assertTrue;
  *
  * @see <a href="https://jira.spring.io/browse/SPR-10199">https://jira.spring.io/browse/SPR-10199</a>
  */
-public class WebInitializerTest {
+public class WebInitializerIT {
     static class JettyStartingListener extends AbstractLifeCycle.AbstractLifeCycleListener {
 
         private final ServletContext sc;

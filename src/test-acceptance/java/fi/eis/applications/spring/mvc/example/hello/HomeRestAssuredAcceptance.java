@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import io.restassured.RestAssured;
 
-public class HomeRestAssuredIT {
+public class HomeRestAssuredAcceptance {
     @Before
     public void setUp() {
         // port for test to connect to

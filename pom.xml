@@ -203,6 +203,37 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <id>acceptance-test</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>2.12</version>
+                        <configuration>
+                            <testSourceDirectory>src/test-acceptance/java</testSourceDirectory>
+                            <includes>
+                                <include>**/*Acceptance.java</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/*IT.java</exclude>
+                                <exclude>**/*Test.java</exclude>
+                            </excludes>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <build>
         <finalName>ROOT</finalName>
         <plugins>
@@ -210,6 +241,29 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.12</version>
+                <configuration>
+                    <testSourceDirectory>src/test/java</testSourceDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.9.1</version>
+                <executions>
+                    <execution>
+                        <id>add-test-source</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/test-integration/java</source>
+                                <source>src/test-acceptance/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
@@ -250,6 +304,9 @@
                 <groupId>org.robotframework</groupId>
                 <artifactId>robotframework-maven-plugin</artifactId>
                 <version>1.4.4</version>
+                <configuration>
+                    <testCasesDirectory>src/test-acceptance/robotframework</testCasesDirectory>
+                </configuration>
                 <!-- execution below can be used, if tests are needed on 
                     mvn:integration-test -->
                 <!-- <executions> <execution> <goals> <goal>run</goal> </goals> 
@@ -260,9 +317,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.19.1</version>
+                <configuration>
+                    <testSourceDirectory>src/test-integration/java</testSourceDirectory>
+                </configuration>
                 <!-- execution below can be used, if tests are needed on 
                     mvn:integration-test -->
-                <!-- 
                 <executions>
                     <execution>
                         <goals>
@@ -271,7 +330,6 @@
                         </goals>
                     </execution>
                 </executions>
-                 -->
             </plugin>
             <plugin>
                 <!-- usage: mvn -s settings-vm.xml tomcat7:deploy -->

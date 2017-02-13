@@ -8,7 +8,7 @@ import org.junit.Test;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
-public class CounterControllerRestAssuredIT {
+public class CounterControllerRestAssuredAcceptance {
 
     
     @Before
