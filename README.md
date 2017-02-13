@@ -35,4 +35,4 @@ mvn -s settings-vm.xml tomcat7:deploy
 See the app yourself
 --------------------
 
-http://localhost:8080/spring-mvc-example
+[http://localhost:8080/spring-mvc-example](http://localhost:8080/spring-mvc-example)
