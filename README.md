@@ -17,6 +17,8 @@ In addition to being simple, it does have
   - robot acceptance test
   - Travis configuration
   - Swagger documentation
+  - Vagrantfile with Tomcat setup
+  - Tomcat setup scripts for Ubuntu environment
 
 Infra setup (VM)
 ----------------
