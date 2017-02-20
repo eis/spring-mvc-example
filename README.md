@@ -10,7 +10,7 @@ preconfigured. This is meant to be simplest-as-possible but with MVC
 configuration and Maven POM ready to be deployed.
 
 In addition to being simple, it does have
-  - HTML GET interface (/) and JSON-using REST interface (/counter)
+  - HTML GET interface ([/](http://localhost:8080/spring-mvc-example)) and JSON-using REST interface ([/add](http://localhost:8080/spring-mvc-example/add))
   - "runme" build and deploy script
   - integration tests
   - resteasy tests
