@@ -9,6 +9,15 @@ Hello World with Spring MVC, using Spring 4 xml configs, having Tomcat deploymen
 preconfigured. This is meant to be simplest-as-possible but with MVC
 configuration and Maven POM ready to be deployed.
 
+In addition to being simple, it does have
+  - HTML GET interface (/) and JSON-using REST interface (/counter)
+  - "runme" build and deploy script
+  - integration tests
+  - resteasy tests
+  - robot acceptance test
+  - Travis configuration
+  - Swagger documentation
+
 Infra setup (VM)
 ----------------
 
