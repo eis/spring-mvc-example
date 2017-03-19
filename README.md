@@ -1,9 +1,9 @@
 spring-mvc-example
 ==================
-[![Build Status](https://api.travis-ci.org/eis/spring-mvc-example.svg?branch=master)]
-(https://travis-ci.org/eis/spring-mvc-example)
-[![Coverage Status](http://img.shields.io/coveralls/eis/spring-mvc-example/master.svg)]
-(https://coveralls.io/github/eis/spring-mvc-example?branch=master)
+<a href="https://travis-ci.org/eis/spring-mvc-example" title="Build Status"><img src="https://api.travis-ci.org/eis/spring-mvc-example.svg?branch=master"></a>
+<a href="https://coveralls.io/github/eis/spring-mvc-example?branch=master" title="Coverage Status"><img src="http://img.shields.io/coveralls/eis/spring-mvc-example/master.svg"></a>
+
+
 
 Hello World with Spring MVC, using Spring 4 xml configs, having Tomcat deployment
 preconfigured. This is meant to be simplest-as-possible but with MVC
