@@ -11,6 +11,11 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/xenial64"
   config.vm.box_version = "20161022.0.0"
+  config.vm.provider "libvirt" do |v, override|
+    override.vm.box = "mkutsevol/xenial"
+    override.vm.box_version = "0.1"
+  end
+
   config.vm.box_check_update = false
 
   config.vm.network :forwarded_port, guest: 8080, host: 8080
