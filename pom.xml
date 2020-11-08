@@ -356,7 +356,7 @@
                         <configuration>
                             <rules>
                                 <requireJavaVersion>
-                                    <version>[1.8]</version>
+                                    <version>[1.8,1.9)</version>
                                     <message>
                                         This project is currently not compatible with your version of java. Build it using a jdk 8 environment, for example in VM.
                                     </message>
