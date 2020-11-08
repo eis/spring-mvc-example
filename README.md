@@ -39,8 +39,13 @@ systemctl restart tomcat8
 Build & run the app
 -------------------
 
+First time (full cycle):
 ```
 mvn -s settings-vm.xml tomcat7:deploy
+```
+Deploy again, only deploy:
+```
+mvn -s settings-vm.xml tomcat7:redeploy-only
 ```
 
 See the app yourself
