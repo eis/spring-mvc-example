@@ -1,0 +1,56 @@
+name: Java CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '8' ]
+
+    name: Java ${{ matrix.Java }} build with Maven
+    env:
+      MAVEN_OPTS: '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: coverage-${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            coverage-${{ runner.os }}-maven-
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: 'adopt'
+      - name: Build with Maven
+        run: mvn verify --batch-mode
+
+  coverage:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: coverage-${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            coverage-${{ runner.os }}-maven-
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '8'
+      - name: Coverage with Jacoco Maven plugin
+        run: mvn verify jacoco:report --quiet --batch-mode -DbuildNumber=${GITHUB_RUN_NUMBER}
+      - uses: codecov/codecov-action@v1
+        with:
+          fail_ci_if_error: true
+          file: ./**/target/site/jacoco/jacoco.xml
+          name: codecov
