@@ -1,9 +1,7 @@
 spring-mvc-example
 ==================
-<a href="https://travis-ci.org/eis/spring-mvc-example" title="Build Status"><img src="https://api.travis-ci.org/eis/spring-mvc-example.svg?branch=master"></a>
-<a href="https://coveralls.io/github/eis/spring-mvc-example?branch=master" title="Coverage Status"><img src="http://img.shields.io/coveralls/eis/spring-mvc-example/master.svg"></a>
-
-
+<a href="https://github.com/eis/spring-mvc-example/actions/workflows/github-actions-build.yml" title="Build Status"><img src="https://github.com/eis/spring-mvc-example/actions/workflows/github-actions-build.yml/badge.svg"></a>
+<a href="https://codecov.io/gh/eis/spring-mvc-example" title="Coverage Status"><img src="https://codecov.io/gh/eis/spring-mvc-example/branch/master/graph/badge.svg?token=6PUI9CYUZR"></a
 
 Hello World with Spring MVC, using Spring 4 xml configs, having Tomcat deployment
 preconfigured. This is meant to be simplest-as-possible but with MVC
@@ -15,7 +13,8 @@ In addition to being simple, it does have
   - integration tests
   - resteasy tests
   - robot acceptance test
-  - Travis configuration
+  - GitHub Actions build
+  - CodeCov integration
   - Swagger documentation
   - Vagrantfile with Tomcat setup
   - Tomcat setup scripts for Ubuntu environment
