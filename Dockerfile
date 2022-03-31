@@ -2,6 +2,7 @@ FROM tomcat:9.0
 
 ADD src/ /spring-mvc-example/src
 ADD pom.xml /spring-mvc-example
+ADD lombok.config /spring-mvc-example
 
 #  Build spring app
 

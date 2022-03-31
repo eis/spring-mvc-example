@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ '8' ]
+        java: [ '11' ]
 
     name: Java ${{ matrix.Java }} build with Maven
     env:
@@ -46,7 +46,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '8'
+          java-version: '11'
       - name: Coverage with Jacoco Maven plugin
         run: mvn verify jacoco:report --quiet --batch-mode -DbuildNumber=${GITHUB_RUN_NUMBER}
       - uses: codecov/codecov-action@v1
