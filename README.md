@@ -16,6 +16,7 @@ In addition to being simple, it does have
   - GitHub Actions build
   - CodeCov integration
   - Swagger documentation
+  - Docker config
   - Vagrantfile with Tomcat setup
   - Dockerfile with Tomcat setup
   - Tomcat setup scripts for Ubuntu environment

@@ -1,4 +1,4 @@
-FROM tomcat:9.0.62-jdk8-openjdk
+FROM tomcat:9.0
 
 ADD src/ /spring-mvc-example/src
 ADD pom.xml /spring-mvc-example
