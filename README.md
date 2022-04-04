@@ -19,6 +19,14 @@ In addition to being simple, it does have
   - Vagrantfile with Tomcat setup
   - Tomcat setup scripts for Ubuntu environment
 
+Infra setup (Docker)
+--------------------
+
+```
+docker build . -t spring-mvc-example
+docker run -p 8080:8080 spring-mvc-example
+```
+
 Infra setup (VM)
 ----------------
 
