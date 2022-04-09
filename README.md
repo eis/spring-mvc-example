@@ -11,16 +11,16 @@ In addition to being simple, it does have
   - HTML GET interface ([/](http://localhost:8080/spring-mvc-example)) and JSON-using REST interface ([/add](http://localhost:8080/spring-mvc-example/add))
   - "runme" build and deploy script
   - integration tests
-  - resteasy tests
   - robot acceptance test
   - GitHub Actions build
   - CodeCov integration
   - Swagger documentation
   - Vagrantfile with Tomcat setup
+  - Dockerfile with Tomcat setup
   - Tomcat setup scripts for Ubuntu environment
 
-Infra setup (Docker)
---------------------
+Infra setup + build & run (Docker)
+----------------------------------
 
 ```
 docker build . -t spring-mvc-example
