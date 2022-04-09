@@ -3,7 +3,7 @@ spring-mvc-example
 <a href="https://github.com/eis/spring-mvc-example/actions/workflows/github-actions-build.yml" title="Build Status"><img src="https://github.com/eis/spring-mvc-example/actions/workflows/github-actions-build.yml/badge.svg"></a>
 <a href="https://codecov.io/gh/eis/spring-mvc-example" title="Coverage Status"><img src="https://codecov.io/gh/eis/spring-mvc-example/branch/master/graph/badge.svg?token=6PUI9CYUZR"></a>
 
-Hello World with Spring MVC, using Spring 4 xml configs, having Tomcat deployment
+Hello World with Spring MVC, using Spring 5 xml configs, having Tomcat deployment
 preconfigured. This is meant to be simplest-as-possible but with MVC
 configuration and Maven POM ready to be deployed.
 
