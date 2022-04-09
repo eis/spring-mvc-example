@@ -10,7 +10,7 @@ WORKDIR /spring-mvc-example/
 RUN mvn clean package
 
 #  Deploy to tomcat
-RUN mv target/ROOT.war /usr/local/tomcat/webapps/
+RUN mv target/spring-mvc-example.war /usr/local/tomcat/webapps/
 
 
 EXPOSE 8080
