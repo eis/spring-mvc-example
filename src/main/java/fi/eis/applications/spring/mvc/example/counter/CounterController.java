@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(
-        produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE,
         consumes = MediaType.APPLICATION_JSON_VALUE)
 public class CounterController {
     private final CounterService counterService;
