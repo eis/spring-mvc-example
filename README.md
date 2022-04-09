@@ -28,6 +28,13 @@ docker build . -t spring-mvc-example
 docker run -p 8080:8080 spring-mvc-example
 ```
 
+Redeploy in Docker container
+----------------------------
+```
+docker exec CONTAINERID mvn clean package
+docker exec CONTAINERID mv target/spring-mvc-example.war /usr/local/tomcat/webapps/
+```
+
 Infra setup (VM)
 ----------------
 
@@ -44,8 +51,8 @@ Infra setup (Ubuntu host)
 systemctl restart tomcat8
 ```
 
-Build & run the app
--------------------
+Build & run the app in VM
+-------------------------
 
 First time (full cycle):
 ```
@@ -55,6 +62,7 @@ Deploy again, only deploy:
 ```
 mvn -s settings-vm.xml tomcat7:redeploy-only
 ```
+
 
 See the app yourself
 --------------------
