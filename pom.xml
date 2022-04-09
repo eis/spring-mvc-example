@@ -217,20 +217,6 @@
                 <version>2.12</version>
             </plugin>
             <plugin>
-                <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.9</version>
-                <configuration>
-                    <additionalProjectnatures>
-                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-                    </additionalProjectnatures>
-                    <additionalBuildcommands>
-                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
-                    </additionalBuildcommands>
-                    <downloadSources>true</downloadSources>
-                    <downloadJavadocs>true</downloadJavadocs>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.4</version>
@@ -255,28 +241,12 @@
                 <groupId>org.robotframework</groupId>
                 <artifactId>robotframework-maven-plugin</artifactId>
                 <version>1.4.4</version>
-                <!-- execution below can be used, if tests are needed on 
-                    mvn:integration-test -->
-                <!-- <executions> <execution> <goals> <goal>run</goal> </goals> 
-                    </execution> </executions> -->
             </plugin>
             <plugin>
                 <!-- to run: mvn failsafe:integration-test -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.19.1</version>
-                <!-- execution below can be used, if tests are needed on 
-                    mvn:integration-test -->
-                <!-- 
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                 -->
             </plugin>
             <plugin>
                 <!-- usage: mvn -s settings-vm.xml tomcat7:deploy -->
